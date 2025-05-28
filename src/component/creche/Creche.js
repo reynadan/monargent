@@ -134,7 +134,7 @@ export default class Creche extends Component {
                 <div className="col-xs-12">
                   <div className="bs-callout bs-callout-info">
                     <p>Vous trouverez ici un simulateur pour estimer le coût de la crêche de votre enfant au luxembourg.
-                    <br/>Le simulateur se base sur les articles publiés sur le site du <a href="http://www.guichet.public.lu/citoyens/fr/famille/parents/garde-enfants/cheque-service-tarification/index.html">guichet.lu</a>
+                    <br/>Le simulateur se base sur les articles publiés sur le site du <a href="https://guichet.public.lu/fr/citoyens/famille-education/parents/garde-enfants/cheque-service.html">guichet.lu</a>
                     <br/>Les données sont données à titre indicatif
                     <br/>Dernière mise à jour des indices : <b>Septembre 2020</b></p>
                   </div>
