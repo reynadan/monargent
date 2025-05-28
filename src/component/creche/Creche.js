@@ -6,7 +6,7 @@ import {FormattedMessage} from 'react-intl';
 import valeurs from '../../baremes/valeur.json';
 import str from '../../baremes/valeurs.json';
 
-const SSM = 2071.10;
+const SSM = 2703.74;
 const Plafondaidetat = 6;
 
 export default class Creche extends Component {
