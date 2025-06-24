@@ -46,24 +46,36 @@ export default class Creche extends Component {
       this.setState({salairereference:salairereference});
 
       var categoriesalaire = 8;
-      if(salairereference < SSM)
-        categoriesalaire = 0;
-      else if(salairereference < 1.5*SSM)
-        categoriesalaire = 1;
-      else if(salairereference < 2*SSM)
-        categoriesalaire = 2;
-      else if(salairereference < 2.5*SSM)
-        categoriesalaire = 3;
-      else if(salairereference < 3*SSM)
-        categoriesalaire = 4;
-      else if(salairereference < 3.5*SSM)
-        categoriesalaire = 5;
-      else if(salairereference < 4*SSM)
-        categoriesalaire = 6;
-      else if(salairereference < 4.5*SSM)
-        categoriesalaire = 7;
+      var categoriedetail = 'Revenu égal ou supérieur à 4,5 x SSM ou sans indication de revenu';
+
+      if (salairereference < SSM) {
+          categoriesalaire = 0;
+          categoriedetail = 'Situation de précarité et d\'exclusion sociale ou bénéficiant du revenu d\'inclusion sociale (REVIS)';
+      } else if (salairereference < 1.5 * SSM) {
+          categoriesalaire = 1;
+          categoriedetail = 'Revenu inférieur à 1,50 x '+SSM+' (SSM)';
+      } else if (salairereference < 2 * SSM) {
+          categoriesalaire = 2;
+          categoriedetail = 'Revenu inférieur à 2 x '+SSM+' (SSM)';
+      } else if (salairereference < 2.5 * SSM) {
+          categoriesalaire = 3;
+          categoriedetail = 'Revenu inférieur à 2,5 x '+SSM+' (SSM)';
+      } else if (salairereference < 3 * SSM) {
+          categoriesalaire = 4;
+          categoriedetail = 'Revenu inférieur à 3 x '+SSM+' (SSM)';
+      } else if (salairereference < 3.5 * SSM) {
+          categoriesalaire = 5;
+          categoriedetail = 'Revenu inférieur à 3,5 x '+SSM+' (SSM)';
+      } else if (salairereference < 4 * SSM) {
+          categoriesalaire = 6;
+          categoriedetail = 'Revenu inférieur à 4 x '+SSM+' (SSM)';
+      } else if (salairereference < 4.5 * SSM) {
+          categoriesalaire = 7;
+          categoriedetail = 'Revenu inférieur à 4,5 x '+SSM+' (SSM)';
+      }
 
       this.setState({categoriesalaire:categoriesalaire});
+      this.setState({categoriedetail:categoriedetail});
 
       var categorie = this.getCategorie(categoriesalaire, this.state.values.numeroenfant);
       var valeur = valeurs[categoriesalaire];
@@ -221,7 +233,10 @@ export default class Creche extends Component {
                     Votre participation hebdomadaire s'élève à : {this.state.tariffacture} € soit {this.state.tariffacture*4} € par mois
                   </div>
                   <h4>Explications :</h4>
-                  <p>Salaire mensuel de référence : {this.state.salairereference}€.</p>
+                  <p>
+                    Salaire mensuel de référence : {this.state.salairereference} €.<br/>
+                    {this.state.categoriedetail}
+                  </p>
                   <p>Vous avez donc le droit à :</p>
                   <ul>
                     <li>{this.state.nbt1}h en tarif 1 : {this.state.p_t1}€/h. Total {this.state.nbt1*this.state.p_t1}€</li>
